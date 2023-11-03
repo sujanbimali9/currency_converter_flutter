@@ -10,6 +10,21 @@ class _CurrencyAppState extends State<CurrencyApp> {
   double result = 0;
   int result1 = 0;
   final TextEditingController pressed = TextEditingController();
+  convert() {
+    if (double.tryParse(pressed.text) != null) {
+      result1 = 0;
+      result = double.parse(pressed.text) * 100;
+      setState(() {
+        result = double.parse(pressed.text) * 100;
+      });
+    } else {
+      result1 = 1;
+
+      setState(() {
+        result = 0;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,21 +109,7 @@ class _CurrencyAppState extends State<CurrencyApp> {
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
-              onPressed: () {
-                if (double.tryParse(pressed.text) != null) {
-                  result1 = 0;
-                  result = double.parse(pressed.text) * 100;
-                  setState(() {
-                    result = double.parse(pressed.text) * 100;
-                  });
-                } else {
-                  result1 = 1;
-
-                  setState(() {
-                    result = 0;
-                  });
-                }
-              },
+              onPressed: convert,
               child: const Text(
                 'Convert',
                 style: TextStyle(
