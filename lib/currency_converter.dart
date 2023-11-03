@@ -52,18 +52,21 @@ class _CurrencyAppState extends State<CurrencyApp> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            (result1 == 0)
-                ? Text(
-                    'RS ${result.toString()}',
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 55),
-                  )
-                : const Text(
-                    'error! enter a no',
-                    style: TextStyle(color: Colors.red, fontSize: 20),
-                  ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: (result1 == 0)
+                  ? Text(
+                      'RS ${result.toString()}',
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 55),
+                    )
+                  : const Text(
+                      'error! enter a no',
+                      style: TextStyle(color: Colors.red, fontSize: 20),
+                    ),
+            ),
             Container(
               height: 60,
               width: 600,
